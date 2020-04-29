@@ -2,15 +2,15 @@ import pandas as pd
 import scipy.spatial
 from sentence_transformers import SentenceTransformer
 
-def main(args):
+def main(embedding_path, sentence):
 
-    sentence_vectors = pd.read_csv(args.embedding_path)
+    sentence_vectors = pd.read_csv(embedding_path)
 
     model_path = "content/training_bert_japanese"
     model = SentenceTransformer(model_path, show_progress_bar=True)
 
 
-    query_embedding = model.encode(args.sentence)
+    query_embedding = model.encode(sentence)
 
     closest_n = 10
     distances = scipy.spatial.distance.cdist(query_embedding, sentence_vectors, metric="cosine")[0]
@@ -34,4 +34,4 @@ parser.add_argument('-s', '--sentenct', default='aaa')
 
 args = parser.parse_args()
 
-main(args)
+main(**args)
