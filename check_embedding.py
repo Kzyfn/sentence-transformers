@@ -25,13 +25,14 @@ def main(embedding_path, sentence):
     for idx, distance in results[0:closest_n]:
         print(sentences[idx].strip(), "(Score: %.4f)" % (distance / 2))
 
-
+"""
 parser = argparse.ArgumentParser(description='このプログラムの説明（なくてもよい）')    # 2. パーサを作る
 
 # 3. parser.add_argumentで受け取る引数を追加していく
-parser.add_argument('-ep', '--"content/articlce_title_embeddings.csv"', default='content/article_body_embeddings.csv' ,help='この引数の説明（なくてもよい）')    # 必須の引数を追加
+parser.add_argument('-ep', '--embedding_path', default='content/article_body_embeddings.csv' ,help='この引数の説明（なくてもよい）')    # 必須の引数を追加
 parser.add_argument('-s', '--sentenct', default='aaa')
 
 args = parser.parse_args()
 
 main(**args)
+"""
