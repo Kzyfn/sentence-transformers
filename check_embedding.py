@@ -8,7 +8,7 @@ def main(embedding_path, sentence):
 
     model_path = "content/training_bert_japanese"
     model = SentenceTransformer(model_path, show_progress_bar=True)
-
+    
 
     query_embedding = model.encode(sentence)
 
