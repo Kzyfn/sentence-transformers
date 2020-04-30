@@ -16,7 +16,7 @@ def main(args):
     g = tf.Graph()
     with g.as_default():
         text_input = tf.placeholder(dtype=tf.string, shape=[None])
-        xling_8_embed = hub.Module("1")
+        xling_8_embed = hub.Module("https://tfhub.dev/google/universal-sentence-encoder-xling-many/1")
         embedded_text = xling_8_embed(text_input)
         init_op = tf.group([tf.global_variables_initializer(), tf.tables_initializer()])
     g.finalize()
