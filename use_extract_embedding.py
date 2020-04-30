@@ -26,11 +26,11 @@ def main(args):
     session.run(init_op)
 
     print("load successful")
-    article_body_embeddings = session.run(embedded_text, feed_dict={text_input: articles['body']})
+    #article_body_embeddings = session.run(embedded_text, feed_dict={text_input: articles['body']})
     article_title_embeddings = session.run(embedded_text, feed_dict={text_input: articles['title']})
     
     print('embedding done')
-    pd.DataFrame(article_body_embeddings).to_csv(args.export_artile_body_path, index=None)
+    #pd.DataFrame(article_body_embeddings).to_csv(args.export_artile_body_path, index=None)
     pd.DataFrame(article_title_embeddings).to_csv(args.export_artile_title_path, index=None)
 
 
