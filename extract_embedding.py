@@ -21,8 +21,8 @@ def main(args):
 
     prl_body[72276] += prl['articleid'][72277]
 
-    prl_title_embeddings = model.encode(prl['headline'].dropna())
-    prl_body_embeddings = model.encode(prl_body.dropna())
+    prl_title_embeddings = model.encode(list(prl['headline'].dropna()))
+    prl_body_embeddings = model.encode(list(prl_body.dropna()))
 
     
     
