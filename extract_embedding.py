@@ -15,8 +15,18 @@ def main(args):
     model_path = "content/training_bert_japanese"
     model = SentenceTransformer(model_path, show_progress_bar=True)
 
-    prl_title_embeddings = model.encode(prl['headline'])
-    prl_body_embeddings = model.encode(prl['bodysub'])
+    #12168と72277はおかしいから修正
+    prl_body = prl['bodysub']
+    prl_body[12167] += prl['articleid'][12168]
+
+    prl_body[72276] += prl['articleid'][72277]
+
+    prl_title_embeddings = model.encode(prl['headline'].dropna())
+    prl_body_embeddings = model.encode(prl_body.dropna())
+
+    
+    
+    
     #article_title_embeddings = model.encode(articles['title'])
     #article_body_embeddings = model.encode(articles['body'])
 
